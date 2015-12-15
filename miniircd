@@ -139,6 +139,7 @@ class Client(object):
             (self.host, self.port, _, _) = socket.getpeername()
         else:
             (self.host, self.port) = socket.getpeername()
+        self.host = "%s.%s" % (self.host, self.port) # joinmarket hostmask hack
         self.__timestamp = time.time()
         self.__readbuffer = ""
         self.__writebuffer = ""
